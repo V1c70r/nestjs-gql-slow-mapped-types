@@ -54,7 +54,7 @@ console.time('omit 5');
 @ObjectType() export class OmitTest5 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 5');
 
-console.log('created 5 pick/omit types, total 5');
+console.log('created 5 pick/omit types, total 10');
 
 @ObjectType()
 export class SimpleType2 {
@@ -1298,7 +1298,7 @@ console.time('omit 10');
 @ObjectType() export class OmitTest10 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 10');
 
-console.log('created 5 pick/omit types, total 10');
+console.log('created 5 pick/omit types, total 20');
 
 @ObjectType()
 export class SimpleType102 {
@@ -2542,7 +2542,7 @@ console.time('omit 15');
 @ObjectType() export class OmitTest15 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 15');
 
-console.log('created 5 pick/omit types, total 15');
+console.log('created 5 pick/omit types, total 30');
 
 @ObjectType()
 export class SimpleType202 {
@@ -3786,7 +3786,7 @@ console.time('omit 20');
 @ObjectType() export class OmitTest20 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 20');
 
-console.log('created 5 pick/omit types, total 20');
+console.log('created 5 pick/omit types, total 40');
 
 @ObjectType()
 export class SimpleType302 {
@@ -5030,7 +5030,7 @@ console.time('omit 25');
 @ObjectType() export class OmitTest25 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 25');
 
-console.log('created 5 pick/omit types, total 25');
+console.log('created 5 pick/omit types, total 50');
 
 @ObjectType()
 export class SimpleType402 {
@@ -6274,7 +6274,7 @@ console.time('omit 30');
 @ObjectType() export class OmitTest30 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 30');
 
-console.log('created 5 pick/omit types, total 30');
+console.log('created 5 pick/omit types, total 60');
 
 @ObjectType()
 export class SimpleType502 {
@@ -7518,7 +7518,7 @@ console.time('omit 35');
 @ObjectType() export class OmitTest35 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 35');
 
-console.log('created 5 pick/omit types, total 35');
+console.log('created 5 pick/omit types, total 70');
 
 @ObjectType()
 export class SimpleType602 {
@@ -8762,7 +8762,7 @@ console.time('omit 40');
 @ObjectType() export class OmitTest40 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 40');
 
-console.log('created 5 pick/omit types, total 40');
+console.log('created 5 pick/omit types, total 80');
 
 @ObjectType()
 export class SimpleType702 {
@@ -10006,7 +10006,7 @@ console.time('omit 45');
 @ObjectType() export class OmitTest45 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 45');
 
-console.log('created 5 pick/omit types, total 45');
+console.log('created 5 pick/omit types, total 90');
 
 @ObjectType()
 export class SimpleType802 {
@@ -11250,7 +11250,7 @@ console.time('omit 50');
 @ObjectType() export class OmitTest50 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 50');
 
-console.log('created 5 pick/omit types, total 50');
+console.log('created 5 pick/omit types, total 100');
 
 @ObjectType()
 export class SimpleType902 {
@@ -12494,7 +12494,7 @@ console.time('omit 55');
 @ObjectType() export class OmitTest55 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 55');
 
-console.log('created 5 pick/omit types, total 55');
+console.log('created 5 pick/omit types, total 110');
 
 @ObjectType()
 export class SimpleType1002 {
@@ -13738,7 +13738,7 @@ console.time('omit 60');
 @ObjectType() export class OmitTest60 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 60');
 
-console.log('created 5 pick/omit types, total 60');
+console.log('created 5 pick/omit types, total 120');
 
 @ObjectType()
 export class SimpleType1102 {
@@ -14982,7 +14982,7 @@ console.time('omit 65');
 @ObjectType() export class OmitTest65 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 65');
 
-console.log('created 5 pick/omit types, total 65');
+console.log('created 5 pick/omit types, total 130');
 
 @ObjectType()
 export class SimpleType1202 {
@@ -16226,7 +16226,7 @@ console.time('omit 70');
 @ObjectType() export class OmitTest70 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 70');
 
-console.log('created 5 pick/omit types, total 70');
+console.log('created 5 pick/omit types, total 140');
 
 @ObjectType()
 export class SimpleType1302 {
@@ -17470,7 +17470,7 @@ console.time('omit 75');
 @ObjectType() export class OmitTest75 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 75');
 
-console.log('created 5 pick/omit types, total 75');
+console.log('created 5 pick/omit types, total 150');
 
 @ObjectType()
 export class SimpleType1402 {
@@ -18714,5 +18714,5 @@ console.time('omit 80');
 @ObjectType() export class OmitTest80 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 80');
 
-console.log('created 5 pick/omit types, total 80');
+console.log('created 5 pick/omit types, total 160');
 

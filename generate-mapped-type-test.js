@@ -33,7 +33,7 @@ console.time('omit ${pickTypeIndex}');
 console.timeEnd('omit ${pickTypeIndex}');\n`);
   }
 
-  console.log(`console.log('created ${num} pick/omit types, total ${pickTypeIndex}');\n`);
+  console.log(`console.log('created ${num} pick/omit types, total ${2 * pickTypeIndex}');\n`);
 }
 
 console.log("import { Field, ObjectType, PickType, OmitType } from '@nestjs/graphql';\n");
