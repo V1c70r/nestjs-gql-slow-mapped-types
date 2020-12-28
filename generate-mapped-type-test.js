@@ -14,6 +14,18 @@ export class SimpleType${baseTypeIndex} {
   @Field() f: string;
   @Field() g: string;
   @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType${baseTypeIndex} {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
 }\n`);
   }
 
@@ -30,16 +42,25 @@ console.timeEnd('pick ${pickTypeIndex}');
 
 console.time('omit ${pickTypeIndex}');
 @ObjectType() export class OmitTest${pickTypeIndex} extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit ${pickTypeIndex}');\n`);
+console.timeEnd('omit ${pickTypeIndex}');
+
+console.time('pick args ${pickTypeIndex}');
+@ObjectType() export class PickArgsTest${pickTypeIndex} extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args ${pickTypeIndex}');
+
+console.time('omit args ${pickTypeIndex}');
+@ArgsType() export class OmitArgsTest${pickTypeIndex} extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args ${pickTypeIndex}');
+\n`);
   }
 
   console.log(`console.log('created ${num} pick/omit types, total ${2 * pickTypeIndex}');\n`);
 }
 
-console.log("import { Field, ObjectType, PickType, OmitType } from '@nestjs/graphql';\n");
+console.log("import { Field, ObjectType, PickType, OmitType, ArgsType } from '@nestjs/graphql';\n");
 printSimpleTypes(1);
-printPickOmitTypes(5);
-for (let i = 0; i < 15; i++) {
+printPickOmitTypes(2);
+for (let i = 0; i < 10; i++) {
   printSimpleTypes(100);
-  printPickOmitTypes(5);
+  printPickOmitTypes(2);
 }

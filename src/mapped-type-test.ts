@@ -1,7 +1,19 @@
-import { Field, ObjectType, PickType, OmitType } from '@nestjs/graphql';
+import { Field, ObjectType, PickType, OmitType, ArgsType } from '@nestjs/graphql';
 
 @ObjectType()
 export class SimpleType1 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType1 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -22,6 +34,15 @@ console.time('omit 1');
 @ObjectType() export class OmitTest1 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 1');
 
+console.time('pick args 1');
+@ObjectType() export class PickArgsTest1 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 1');
+
+console.time('omit args 1');
+@ArgsType() export class OmitArgsTest1 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 1');
+
+
 console.time('pick 2');
 @ObjectType() export class PickTest2 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
 console.timeEnd('pick 2');
@@ -30,34 +51,31 @@ console.time('omit 2');
 @ObjectType() export class OmitTest2 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
 console.timeEnd('omit 2');
 
-console.time('pick 3');
-@ObjectType() export class PickTest3 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 3');
+console.time('pick args 2');
+@ObjectType() export class PickArgsTest2 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 2');
 
-console.time('omit 3');
-@ObjectType() export class OmitTest3 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 3');
+console.time('omit args 2');
+@ArgsType() export class OmitArgsTest2 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 2');
 
-console.time('pick 4');
-@ObjectType() export class PickTest4 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 4');
 
-console.time('omit 4');
-@ObjectType() export class OmitTest4 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 4');
-
-console.time('pick 5');
-@ObjectType() export class PickTest5 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 5');
-
-console.time('omit 5');
-@ObjectType() export class OmitTest5 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 5');
-
-console.log('created 5 pick/omit types, total 10');
+console.log('created 2 pick/omit types, total 4');
 
 @ObjectType()
 export class SimpleType2 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType2 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -80,8 +98,32 @@ export class SimpleType3 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType3 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType4 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType4 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -104,8 +146,32 @@ export class SimpleType5 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType5 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType6 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType6 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -128,8 +194,32 @@ export class SimpleType7 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType7 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType8 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType8 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -152,8 +242,32 @@ export class SimpleType9 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType9 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType10 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType10 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -176,8 +290,32 @@ export class SimpleType11 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType11 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType12 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType12 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -200,8 +338,32 @@ export class SimpleType13 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType13 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType14 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType14 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -224,8 +386,32 @@ export class SimpleType15 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType15 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType16 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType16 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -248,8 +434,32 @@ export class SimpleType17 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType17 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType18 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType18 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -272,8 +482,32 @@ export class SimpleType19 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType19 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType20 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType20 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -296,8 +530,32 @@ export class SimpleType21 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType21 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType22 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType22 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -320,8 +578,32 @@ export class SimpleType23 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType23 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType24 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType24 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -344,8 +626,32 @@ export class SimpleType25 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType25 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType26 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType26 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -368,8 +674,32 @@ export class SimpleType27 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType27 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType28 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType28 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -392,8 +722,32 @@ export class SimpleType29 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType29 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType30 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType30 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -416,8 +770,32 @@ export class SimpleType31 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType31 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType32 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType32 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -440,8 +818,32 @@ export class SimpleType33 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType33 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType34 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType34 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -464,8 +866,32 @@ export class SimpleType35 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType35 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType36 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType36 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -488,8 +914,32 @@ export class SimpleType37 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType37 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType38 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType38 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -512,8 +962,32 @@ export class SimpleType39 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType39 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType40 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType40 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -536,8 +1010,32 @@ export class SimpleType41 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType41 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType42 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType42 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -560,8 +1058,32 @@ export class SimpleType43 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType43 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType44 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType44 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -584,8 +1106,32 @@ export class SimpleType45 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType45 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType46 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType46 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -608,8 +1154,32 @@ export class SimpleType47 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType47 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType48 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType48 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -632,8 +1202,32 @@ export class SimpleType49 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType49 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType50 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType50 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -656,8 +1250,32 @@ export class SimpleType51 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType51 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType52 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType52 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -680,8 +1298,32 @@ export class SimpleType53 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType53 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType54 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType54 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -704,8 +1346,32 @@ export class SimpleType55 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType55 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType56 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType56 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -728,8 +1394,32 @@ export class SimpleType57 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType57 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType58 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType58 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -752,8 +1442,32 @@ export class SimpleType59 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType59 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType60 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType60 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -776,8 +1490,32 @@ export class SimpleType61 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType61 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType62 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType62 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -800,8 +1538,32 @@ export class SimpleType63 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType63 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType64 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType64 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -824,8 +1586,32 @@ export class SimpleType65 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType65 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType66 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType66 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -848,8 +1634,32 @@ export class SimpleType67 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType67 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType68 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType68 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -872,8 +1682,32 @@ export class SimpleType69 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType69 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType70 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType70 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -896,8 +1730,32 @@ export class SimpleType71 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType71 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType72 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType72 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -920,8 +1778,32 @@ export class SimpleType73 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType73 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType74 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType74 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -944,8 +1826,32 @@ export class SimpleType75 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType75 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType76 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType76 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -968,8 +1874,32 @@ export class SimpleType77 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType77 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType78 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType78 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -992,8 +1922,32 @@ export class SimpleType79 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType79 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType80 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType80 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1016,8 +1970,32 @@ export class SimpleType81 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType81 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType82 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType82 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1040,8 +2018,32 @@ export class SimpleType83 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType83 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType84 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType84 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1064,8 +2066,32 @@ export class SimpleType85 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType85 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType86 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType86 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1088,8 +2114,32 @@ export class SimpleType87 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType87 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType88 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType88 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1112,8 +2162,32 @@ export class SimpleType89 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType89 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType90 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType90 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1136,8 +2210,32 @@ export class SimpleType91 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType91 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType92 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType92 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1160,8 +2258,32 @@ export class SimpleType93 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType93 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType94 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType94 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1184,8 +2306,32 @@ export class SimpleType95 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType95 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType96 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType96 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1208,8 +2354,32 @@ export class SimpleType97 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType97 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType98 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType98 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1232,8 +2402,32 @@ export class SimpleType99 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType99 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType100 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType100 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1256,52 +2450,70 @@ export class SimpleType101 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType101 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 101');
 
-console.time('pick 6');
-@ObjectType() export class PickTest6 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 6');
+console.time('pick 3');
+@ObjectType() export class PickTest3 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 3');
 
-console.time('omit 6');
-@ObjectType() export class OmitTest6 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 6');
+console.time('omit 3');
+@ObjectType() export class OmitTest3 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 3');
 
-console.time('pick 7');
-@ObjectType() export class PickTest7 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 7');
+console.time('pick args 3');
+@ObjectType() export class PickArgsTest3 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 3');
 
-console.time('omit 7');
-@ObjectType() export class OmitTest7 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 7');
+console.time('omit args 3');
+@ArgsType() export class OmitArgsTest3 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 3');
 
-console.time('pick 8');
-@ObjectType() export class PickTest8 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 8');
 
-console.time('omit 8');
-@ObjectType() export class OmitTest8 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 8');
+console.time('pick 4');
+@ObjectType() export class PickTest4 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 4');
 
-console.time('pick 9');
-@ObjectType() export class PickTest9 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 9');
+console.time('omit 4');
+@ObjectType() export class OmitTest4 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 4');
 
-console.time('omit 9');
-@ObjectType() export class OmitTest9 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 9');
+console.time('pick args 4');
+@ObjectType() export class PickArgsTest4 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 4');
 
-console.time('pick 10');
-@ObjectType() export class PickTest10 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 10');
+console.time('omit args 4');
+@ArgsType() export class OmitArgsTest4 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 4');
 
-console.time('omit 10');
-@ObjectType() export class OmitTest10 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 10');
 
-console.log('created 5 pick/omit types, total 20');
+console.log('created 2 pick/omit types, total 8');
 
 @ObjectType()
 export class SimpleType102 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType102 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1324,8 +2536,32 @@ export class SimpleType103 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType103 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType104 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType104 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1348,8 +2584,32 @@ export class SimpleType105 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType105 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType106 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType106 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1372,8 +2632,32 @@ export class SimpleType107 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType107 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType108 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType108 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1396,8 +2680,32 @@ export class SimpleType109 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType109 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType110 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType110 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1420,8 +2728,32 @@ export class SimpleType111 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType111 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType112 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType112 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1444,8 +2776,32 @@ export class SimpleType113 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType113 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType114 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType114 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1468,8 +2824,32 @@ export class SimpleType115 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType115 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType116 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType116 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1492,8 +2872,32 @@ export class SimpleType117 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType117 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType118 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType118 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1516,8 +2920,32 @@ export class SimpleType119 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType119 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType120 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType120 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1540,8 +2968,32 @@ export class SimpleType121 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType121 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType122 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType122 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1564,8 +3016,32 @@ export class SimpleType123 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType123 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType124 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType124 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1588,8 +3064,32 @@ export class SimpleType125 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType125 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType126 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType126 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1612,8 +3112,32 @@ export class SimpleType127 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType127 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType128 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType128 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1636,8 +3160,32 @@ export class SimpleType129 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType129 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType130 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType130 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1660,8 +3208,32 @@ export class SimpleType131 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType131 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType132 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType132 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1684,8 +3256,32 @@ export class SimpleType133 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType133 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType134 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType134 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1708,8 +3304,32 @@ export class SimpleType135 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType135 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType136 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType136 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1732,8 +3352,32 @@ export class SimpleType137 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType137 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType138 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType138 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1756,8 +3400,32 @@ export class SimpleType139 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType139 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType140 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType140 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1780,8 +3448,32 @@ export class SimpleType141 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType141 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType142 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType142 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1804,8 +3496,32 @@ export class SimpleType143 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType143 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType144 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType144 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1828,8 +3544,32 @@ export class SimpleType145 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType145 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType146 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType146 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1852,8 +3592,32 @@ export class SimpleType147 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType147 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType148 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType148 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1876,8 +3640,32 @@ export class SimpleType149 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType149 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType150 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType150 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1900,8 +3688,32 @@ export class SimpleType151 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType151 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType152 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType152 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1924,8 +3736,32 @@ export class SimpleType153 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType153 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType154 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType154 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1948,8 +3784,32 @@ export class SimpleType155 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType155 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType156 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType156 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1972,8 +3832,32 @@ export class SimpleType157 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType157 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType158 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType158 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -1996,8 +3880,32 @@ export class SimpleType159 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType159 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType160 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType160 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2020,8 +3928,32 @@ export class SimpleType161 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType161 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType162 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType162 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2044,8 +3976,32 @@ export class SimpleType163 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType163 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType164 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType164 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2068,8 +4024,32 @@ export class SimpleType165 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType165 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType166 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType166 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2092,8 +4072,32 @@ export class SimpleType167 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType167 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType168 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType168 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2116,8 +4120,32 @@ export class SimpleType169 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType169 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType170 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType170 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2140,8 +4168,32 @@ export class SimpleType171 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType171 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType172 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType172 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2164,8 +4216,32 @@ export class SimpleType173 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType173 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType174 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType174 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2188,8 +4264,32 @@ export class SimpleType175 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType175 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType176 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType176 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2212,8 +4312,32 @@ export class SimpleType177 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType177 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType178 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType178 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2236,8 +4360,32 @@ export class SimpleType179 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType179 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType180 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType180 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2260,8 +4408,32 @@ export class SimpleType181 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType181 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType182 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType182 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2284,8 +4456,32 @@ export class SimpleType183 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType183 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType184 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType184 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2308,8 +4504,32 @@ export class SimpleType185 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType185 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType186 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType186 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2332,8 +4552,32 @@ export class SimpleType187 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType187 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType188 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType188 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2356,8 +4600,32 @@ export class SimpleType189 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType189 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType190 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType190 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2380,8 +4648,32 @@ export class SimpleType191 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType191 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType192 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType192 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2404,8 +4696,32 @@ export class SimpleType193 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType193 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType194 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType194 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2428,8 +4744,32 @@ export class SimpleType195 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType195 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType196 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType196 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2452,8 +4792,32 @@ export class SimpleType197 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType197 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType198 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType198 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2476,8 +4840,32 @@ export class SimpleType199 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType199 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType200 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType200 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2500,52 +4888,70 @@ export class SimpleType201 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType201 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 201');
 
-console.time('pick 11');
-@ObjectType() export class PickTest11 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 11');
+console.time('pick 5');
+@ObjectType() export class PickTest5 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 5');
 
-console.time('omit 11');
-@ObjectType() export class OmitTest11 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 11');
+console.time('omit 5');
+@ObjectType() export class OmitTest5 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 5');
 
-console.time('pick 12');
-@ObjectType() export class PickTest12 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 12');
+console.time('pick args 5');
+@ObjectType() export class PickArgsTest5 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 5');
 
-console.time('omit 12');
-@ObjectType() export class OmitTest12 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 12');
+console.time('omit args 5');
+@ArgsType() export class OmitArgsTest5 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 5');
 
-console.time('pick 13');
-@ObjectType() export class PickTest13 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 13');
 
-console.time('omit 13');
-@ObjectType() export class OmitTest13 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 13');
+console.time('pick 6');
+@ObjectType() export class PickTest6 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 6');
 
-console.time('pick 14');
-@ObjectType() export class PickTest14 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 14');
+console.time('omit 6');
+@ObjectType() export class OmitTest6 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 6');
 
-console.time('omit 14');
-@ObjectType() export class OmitTest14 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 14');
+console.time('pick args 6');
+@ObjectType() export class PickArgsTest6 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 6');
 
-console.time('pick 15');
-@ObjectType() export class PickTest15 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 15');
+console.time('omit args 6');
+@ArgsType() export class OmitArgsTest6 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 6');
 
-console.time('omit 15');
-@ObjectType() export class OmitTest15 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 15');
 
-console.log('created 5 pick/omit types, total 30');
+console.log('created 2 pick/omit types, total 12');
 
 @ObjectType()
 export class SimpleType202 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType202 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2568,8 +4974,32 @@ export class SimpleType203 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType203 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType204 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType204 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2592,8 +5022,32 @@ export class SimpleType205 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType205 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType206 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType206 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2616,8 +5070,32 @@ export class SimpleType207 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType207 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType208 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType208 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2640,8 +5118,32 @@ export class SimpleType209 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType209 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType210 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType210 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2664,8 +5166,32 @@ export class SimpleType211 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType211 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType212 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType212 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2688,8 +5214,32 @@ export class SimpleType213 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType213 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType214 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType214 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2712,8 +5262,32 @@ export class SimpleType215 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType215 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType216 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType216 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2736,8 +5310,32 @@ export class SimpleType217 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType217 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType218 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType218 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2760,8 +5358,32 @@ export class SimpleType219 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType219 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType220 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType220 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2784,8 +5406,32 @@ export class SimpleType221 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType221 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType222 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType222 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2808,8 +5454,32 @@ export class SimpleType223 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType223 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType224 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType224 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2832,8 +5502,32 @@ export class SimpleType225 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType225 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType226 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType226 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2856,8 +5550,32 @@ export class SimpleType227 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType227 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType228 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType228 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2880,8 +5598,32 @@ export class SimpleType229 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType229 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType230 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType230 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2904,8 +5646,32 @@ export class SimpleType231 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType231 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType232 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType232 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2928,8 +5694,32 @@ export class SimpleType233 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType233 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType234 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType234 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2952,8 +5742,32 @@ export class SimpleType235 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType235 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType236 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType236 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -2976,8 +5790,32 @@ export class SimpleType237 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType237 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType238 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType238 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3000,8 +5838,32 @@ export class SimpleType239 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType239 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType240 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType240 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3024,8 +5886,32 @@ export class SimpleType241 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType241 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType242 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType242 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3048,8 +5934,32 @@ export class SimpleType243 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType243 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType244 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType244 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3072,8 +5982,32 @@ export class SimpleType245 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType245 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType246 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType246 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3096,8 +6030,32 @@ export class SimpleType247 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType247 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType248 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType248 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3120,8 +6078,32 @@ export class SimpleType249 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType249 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType250 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType250 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3144,8 +6126,32 @@ export class SimpleType251 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType251 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType252 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType252 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3168,8 +6174,32 @@ export class SimpleType253 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType253 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType254 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType254 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3192,8 +6222,32 @@ export class SimpleType255 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType255 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType256 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType256 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3216,8 +6270,32 @@ export class SimpleType257 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType257 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType258 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType258 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3240,8 +6318,32 @@ export class SimpleType259 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType259 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType260 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType260 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3264,8 +6366,32 @@ export class SimpleType261 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType261 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType262 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType262 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3288,8 +6414,32 @@ export class SimpleType263 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType263 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType264 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType264 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3312,8 +6462,32 @@ export class SimpleType265 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType265 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType266 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType266 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3336,8 +6510,32 @@ export class SimpleType267 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType267 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType268 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType268 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3360,8 +6558,32 @@ export class SimpleType269 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType269 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType270 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType270 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3384,8 +6606,32 @@ export class SimpleType271 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType271 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType272 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType272 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3408,8 +6654,32 @@ export class SimpleType273 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType273 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType274 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType274 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3432,8 +6702,32 @@ export class SimpleType275 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType275 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType276 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType276 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3456,8 +6750,32 @@ export class SimpleType277 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType277 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType278 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType278 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3480,8 +6798,32 @@ export class SimpleType279 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType279 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType280 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType280 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3504,8 +6846,32 @@ export class SimpleType281 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType281 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType282 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType282 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3528,8 +6894,32 @@ export class SimpleType283 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType283 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType284 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType284 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3552,8 +6942,32 @@ export class SimpleType285 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType285 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType286 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType286 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3576,8 +6990,32 @@ export class SimpleType287 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType287 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType288 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType288 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3600,8 +7038,32 @@ export class SimpleType289 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType289 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType290 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType290 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3624,8 +7086,32 @@ export class SimpleType291 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType291 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType292 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType292 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3648,8 +7134,32 @@ export class SimpleType293 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType293 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType294 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType294 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3672,8 +7182,32 @@ export class SimpleType295 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType295 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType296 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType296 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3696,8 +7230,32 @@ export class SimpleType297 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType297 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType298 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType298 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3720,8 +7278,32 @@ export class SimpleType299 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType299 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType300 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType300 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3744,52 +7326,70 @@ export class SimpleType301 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType301 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 301');
 
-console.time('pick 16');
-@ObjectType() export class PickTest16 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 16');
+console.time('pick 7');
+@ObjectType() export class PickTest7 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 7');
 
-console.time('omit 16');
-@ObjectType() export class OmitTest16 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 16');
+console.time('omit 7');
+@ObjectType() export class OmitTest7 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 7');
 
-console.time('pick 17');
-@ObjectType() export class PickTest17 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 17');
+console.time('pick args 7');
+@ObjectType() export class PickArgsTest7 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 7');
 
-console.time('omit 17');
-@ObjectType() export class OmitTest17 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 17');
+console.time('omit args 7');
+@ArgsType() export class OmitArgsTest7 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 7');
 
-console.time('pick 18');
-@ObjectType() export class PickTest18 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 18');
 
-console.time('omit 18');
-@ObjectType() export class OmitTest18 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 18');
+console.time('pick 8');
+@ObjectType() export class PickTest8 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 8');
 
-console.time('pick 19');
-@ObjectType() export class PickTest19 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 19');
+console.time('omit 8');
+@ObjectType() export class OmitTest8 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 8');
 
-console.time('omit 19');
-@ObjectType() export class OmitTest19 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 19');
+console.time('pick args 8');
+@ObjectType() export class PickArgsTest8 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 8');
 
-console.time('pick 20');
-@ObjectType() export class PickTest20 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 20');
+console.time('omit args 8');
+@ArgsType() export class OmitArgsTest8 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 8');
 
-console.time('omit 20');
-@ObjectType() export class OmitTest20 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 20');
 
-console.log('created 5 pick/omit types, total 40');
+console.log('created 2 pick/omit types, total 16');
 
 @ObjectType()
 export class SimpleType302 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType302 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3812,8 +7412,32 @@ export class SimpleType303 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType303 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType304 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType304 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3836,8 +7460,32 @@ export class SimpleType305 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType305 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType306 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType306 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3860,8 +7508,32 @@ export class SimpleType307 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType307 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType308 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType308 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3884,8 +7556,32 @@ export class SimpleType309 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType309 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType310 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType310 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3908,8 +7604,32 @@ export class SimpleType311 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType311 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType312 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType312 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3932,8 +7652,32 @@ export class SimpleType313 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType313 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType314 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType314 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3956,8 +7700,32 @@ export class SimpleType315 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType315 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType316 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType316 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -3980,8 +7748,32 @@ export class SimpleType317 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType317 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType318 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType318 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4004,8 +7796,32 @@ export class SimpleType319 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType319 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType320 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType320 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4028,8 +7844,32 @@ export class SimpleType321 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType321 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType322 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType322 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4052,8 +7892,32 @@ export class SimpleType323 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType323 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType324 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType324 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4076,8 +7940,32 @@ export class SimpleType325 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType325 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType326 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType326 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4100,8 +7988,32 @@ export class SimpleType327 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType327 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType328 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType328 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4124,8 +8036,32 @@ export class SimpleType329 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType329 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType330 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType330 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4148,8 +8084,32 @@ export class SimpleType331 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType331 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType332 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType332 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4172,8 +8132,32 @@ export class SimpleType333 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType333 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType334 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType334 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4196,8 +8180,32 @@ export class SimpleType335 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType335 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType336 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType336 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4220,8 +8228,32 @@ export class SimpleType337 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType337 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType338 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType338 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4244,8 +8276,32 @@ export class SimpleType339 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType339 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType340 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType340 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4268,8 +8324,32 @@ export class SimpleType341 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType341 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType342 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType342 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4292,8 +8372,32 @@ export class SimpleType343 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType343 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType344 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType344 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4316,8 +8420,32 @@ export class SimpleType345 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType345 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType346 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType346 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4340,8 +8468,32 @@ export class SimpleType347 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType347 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType348 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType348 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4364,8 +8516,32 @@ export class SimpleType349 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType349 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType350 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType350 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4388,8 +8564,32 @@ export class SimpleType351 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType351 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType352 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType352 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4412,8 +8612,32 @@ export class SimpleType353 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType353 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType354 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType354 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4436,8 +8660,32 @@ export class SimpleType355 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType355 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType356 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType356 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4460,8 +8708,32 @@ export class SimpleType357 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType357 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType358 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType358 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4484,8 +8756,32 @@ export class SimpleType359 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType359 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType360 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType360 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4508,8 +8804,32 @@ export class SimpleType361 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType361 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType362 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType362 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4532,8 +8852,32 @@ export class SimpleType363 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType363 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType364 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType364 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4556,8 +8900,32 @@ export class SimpleType365 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType365 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType366 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType366 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4580,8 +8948,32 @@ export class SimpleType367 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType367 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType368 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType368 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4604,8 +8996,32 @@ export class SimpleType369 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType369 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType370 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType370 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4628,8 +9044,32 @@ export class SimpleType371 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType371 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType372 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType372 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4652,8 +9092,32 @@ export class SimpleType373 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType373 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType374 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType374 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4676,8 +9140,32 @@ export class SimpleType375 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType375 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType376 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType376 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4700,8 +9188,32 @@ export class SimpleType377 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType377 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType378 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType378 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4724,8 +9236,32 @@ export class SimpleType379 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType379 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType380 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType380 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4748,8 +9284,32 @@ export class SimpleType381 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType381 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType382 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType382 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4772,8 +9332,32 @@ export class SimpleType383 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType383 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType384 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType384 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4796,8 +9380,32 @@ export class SimpleType385 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType385 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType386 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType386 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4820,8 +9428,32 @@ export class SimpleType387 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType387 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType388 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType388 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4844,8 +9476,32 @@ export class SimpleType389 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType389 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType390 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType390 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4868,8 +9524,32 @@ export class SimpleType391 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType391 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType392 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType392 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4892,8 +9572,32 @@ export class SimpleType393 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType393 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType394 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType394 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4916,8 +9620,32 @@ export class SimpleType395 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType395 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType396 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType396 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4940,8 +9668,32 @@ export class SimpleType397 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType397 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType398 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType398 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4964,8 +9716,32 @@ export class SimpleType399 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType399 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType400 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType400 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -4988,52 +9764,70 @@ export class SimpleType401 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType401 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 401');
 
-console.time('pick 21');
-@ObjectType() export class PickTest21 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 21');
+console.time('pick 9');
+@ObjectType() export class PickTest9 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 9');
 
-console.time('omit 21');
-@ObjectType() export class OmitTest21 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 21');
+console.time('omit 9');
+@ObjectType() export class OmitTest9 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 9');
 
-console.time('pick 22');
-@ObjectType() export class PickTest22 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 22');
+console.time('pick args 9');
+@ObjectType() export class PickArgsTest9 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 9');
 
-console.time('omit 22');
-@ObjectType() export class OmitTest22 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 22');
+console.time('omit args 9');
+@ArgsType() export class OmitArgsTest9 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 9');
 
-console.time('pick 23');
-@ObjectType() export class PickTest23 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 23');
 
-console.time('omit 23');
-@ObjectType() export class OmitTest23 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 23');
+console.time('pick 10');
+@ObjectType() export class PickTest10 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 10');
 
-console.time('pick 24');
-@ObjectType() export class PickTest24 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 24');
+console.time('omit 10');
+@ObjectType() export class OmitTest10 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 10');
 
-console.time('omit 24');
-@ObjectType() export class OmitTest24 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 24');
+console.time('pick args 10');
+@ObjectType() export class PickArgsTest10 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 10');
 
-console.time('pick 25');
-@ObjectType() export class PickTest25 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 25');
+console.time('omit args 10');
+@ArgsType() export class OmitArgsTest10 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 10');
 
-console.time('omit 25');
-@ObjectType() export class OmitTest25 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 25');
 
-console.log('created 5 pick/omit types, total 50');
+console.log('created 2 pick/omit types, total 20');
 
 @ObjectType()
 export class SimpleType402 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType402 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5056,8 +9850,32 @@ export class SimpleType403 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType403 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType404 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType404 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5080,8 +9898,32 @@ export class SimpleType405 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType405 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType406 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType406 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5104,8 +9946,32 @@ export class SimpleType407 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType407 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType408 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType408 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5128,8 +9994,32 @@ export class SimpleType409 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType409 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType410 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType410 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5152,8 +10042,32 @@ export class SimpleType411 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType411 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType412 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType412 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5176,8 +10090,32 @@ export class SimpleType413 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType413 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType414 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType414 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5200,8 +10138,32 @@ export class SimpleType415 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType415 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType416 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType416 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5224,8 +10186,32 @@ export class SimpleType417 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType417 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType418 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType418 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5248,8 +10234,32 @@ export class SimpleType419 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType419 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType420 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType420 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5272,8 +10282,32 @@ export class SimpleType421 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType421 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType422 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType422 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5296,8 +10330,32 @@ export class SimpleType423 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType423 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType424 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType424 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5320,8 +10378,32 @@ export class SimpleType425 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType425 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType426 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType426 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5344,8 +10426,32 @@ export class SimpleType427 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType427 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType428 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType428 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5368,8 +10474,32 @@ export class SimpleType429 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType429 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType430 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType430 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5392,8 +10522,32 @@ export class SimpleType431 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType431 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType432 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType432 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5416,8 +10570,32 @@ export class SimpleType433 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType433 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType434 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType434 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5440,8 +10618,32 @@ export class SimpleType435 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType435 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType436 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType436 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5464,8 +10666,32 @@ export class SimpleType437 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType437 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType438 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType438 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5488,8 +10714,32 @@ export class SimpleType439 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType439 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType440 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType440 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5512,8 +10762,32 @@ export class SimpleType441 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType441 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType442 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType442 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5536,8 +10810,32 @@ export class SimpleType443 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType443 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType444 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType444 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5560,8 +10858,32 @@ export class SimpleType445 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType445 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType446 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType446 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5584,8 +10906,32 @@ export class SimpleType447 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType447 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType448 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType448 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5608,8 +10954,32 @@ export class SimpleType449 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType449 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType450 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType450 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5632,8 +11002,32 @@ export class SimpleType451 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType451 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType452 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType452 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5656,8 +11050,32 @@ export class SimpleType453 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType453 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType454 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType454 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5680,8 +11098,32 @@ export class SimpleType455 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType455 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType456 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType456 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5704,8 +11146,32 @@ export class SimpleType457 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType457 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType458 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType458 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5728,8 +11194,32 @@ export class SimpleType459 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType459 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType460 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType460 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5752,8 +11242,32 @@ export class SimpleType461 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType461 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType462 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType462 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5776,8 +11290,32 @@ export class SimpleType463 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType463 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType464 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType464 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5800,8 +11338,32 @@ export class SimpleType465 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType465 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType466 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType466 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5824,8 +11386,32 @@ export class SimpleType467 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType467 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType468 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType468 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5848,8 +11434,32 @@ export class SimpleType469 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType469 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType470 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType470 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5872,8 +11482,32 @@ export class SimpleType471 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType471 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType472 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType472 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5896,8 +11530,32 @@ export class SimpleType473 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType473 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType474 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType474 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5920,8 +11578,32 @@ export class SimpleType475 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType475 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType476 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType476 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5944,8 +11626,32 @@ export class SimpleType477 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType477 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType478 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType478 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5968,8 +11674,32 @@ export class SimpleType479 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType479 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType480 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType480 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -5992,8 +11722,32 @@ export class SimpleType481 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType481 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType482 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType482 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6016,8 +11770,32 @@ export class SimpleType483 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType483 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType484 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType484 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6040,8 +11818,32 @@ export class SimpleType485 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType485 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType486 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType486 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6064,8 +11866,32 @@ export class SimpleType487 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType487 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType488 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType488 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6088,8 +11914,32 @@ export class SimpleType489 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType489 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType490 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType490 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6112,8 +11962,32 @@ export class SimpleType491 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType491 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType492 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType492 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6136,8 +12010,32 @@ export class SimpleType493 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType493 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType494 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType494 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6160,8 +12058,32 @@ export class SimpleType495 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType495 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType496 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType496 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6184,8 +12106,32 @@ export class SimpleType497 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType497 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType498 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType498 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6208,8 +12154,32 @@ export class SimpleType499 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType499 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType500 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType500 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6232,52 +12202,70 @@ export class SimpleType501 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType501 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 501');
 
-console.time('pick 26');
-@ObjectType() export class PickTest26 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 26');
+console.time('pick 11');
+@ObjectType() export class PickTest11 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 11');
 
-console.time('omit 26');
-@ObjectType() export class OmitTest26 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 26');
+console.time('omit 11');
+@ObjectType() export class OmitTest11 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 11');
 
-console.time('pick 27');
-@ObjectType() export class PickTest27 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 27');
+console.time('pick args 11');
+@ObjectType() export class PickArgsTest11 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 11');
 
-console.time('omit 27');
-@ObjectType() export class OmitTest27 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 27');
+console.time('omit args 11');
+@ArgsType() export class OmitArgsTest11 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 11');
 
-console.time('pick 28');
-@ObjectType() export class PickTest28 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 28');
 
-console.time('omit 28');
-@ObjectType() export class OmitTest28 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 28');
+console.time('pick 12');
+@ObjectType() export class PickTest12 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 12');
 
-console.time('pick 29');
-@ObjectType() export class PickTest29 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 29');
+console.time('omit 12');
+@ObjectType() export class OmitTest12 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 12');
 
-console.time('omit 29');
-@ObjectType() export class OmitTest29 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 29');
+console.time('pick args 12');
+@ObjectType() export class PickArgsTest12 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 12');
 
-console.time('pick 30');
-@ObjectType() export class PickTest30 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 30');
+console.time('omit args 12');
+@ArgsType() export class OmitArgsTest12 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 12');
 
-console.time('omit 30');
-@ObjectType() export class OmitTest30 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 30');
 
-console.log('created 5 pick/omit types, total 60');
+console.log('created 2 pick/omit types, total 24');
 
 @ObjectType()
 export class SimpleType502 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType502 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6300,8 +12288,32 @@ export class SimpleType503 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType503 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType504 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType504 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6324,8 +12336,32 @@ export class SimpleType505 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType505 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType506 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType506 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6348,8 +12384,32 @@ export class SimpleType507 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType507 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType508 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType508 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6372,8 +12432,32 @@ export class SimpleType509 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType509 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType510 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType510 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6396,8 +12480,32 @@ export class SimpleType511 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType511 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType512 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType512 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6420,8 +12528,32 @@ export class SimpleType513 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType513 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType514 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType514 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6444,8 +12576,32 @@ export class SimpleType515 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType515 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType516 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType516 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6468,8 +12624,32 @@ export class SimpleType517 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType517 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType518 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType518 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6492,8 +12672,32 @@ export class SimpleType519 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType519 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType520 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType520 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6516,8 +12720,32 @@ export class SimpleType521 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType521 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType522 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType522 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6540,8 +12768,32 @@ export class SimpleType523 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType523 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType524 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType524 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6564,8 +12816,32 @@ export class SimpleType525 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType525 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType526 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType526 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6588,8 +12864,32 @@ export class SimpleType527 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType527 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType528 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType528 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6612,8 +12912,32 @@ export class SimpleType529 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType529 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType530 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType530 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6636,8 +12960,32 @@ export class SimpleType531 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType531 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType532 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType532 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6660,8 +13008,32 @@ export class SimpleType533 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType533 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType534 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType534 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6684,8 +13056,32 @@ export class SimpleType535 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType535 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType536 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType536 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6708,8 +13104,32 @@ export class SimpleType537 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType537 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType538 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType538 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6732,8 +13152,32 @@ export class SimpleType539 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType539 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType540 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType540 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6756,8 +13200,32 @@ export class SimpleType541 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType541 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType542 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType542 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6780,8 +13248,32 @@ export class SimpleType543 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType543 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType544 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType544 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6804,8 +13296,32 @@ export class SimpleType545 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType545 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType546 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType546 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6828,8 +13344,32 @@ export class SimpleType547 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType547 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType548 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType548 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6852,8 +13392,32 @@ export class SimpleType549 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType549 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType550 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType550 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6876,8 +13440,32 @@ export class SimpleType551 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType551 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType552 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType552 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6900,8 +13488,32 @@ export class SimpleType553 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType553 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType554 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType554 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6924,8 +13536,32 @@ export class SimpleType555 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType555 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType556 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType556 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6948,8 +13584,32 @@ export class SimpleType557 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType557 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType558 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType558 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6972,8 +13632,32 @@ export class SimpleType559 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType559 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType560 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType560 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -6996,8 +13680,32 @@ export class SimpleType561 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType561 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType562 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType562 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7020,8 +13728,32 @@ export class SimpleType563 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType563 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType564 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType564 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7044,8 +13776,32 @@ export class SimpleType565 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType565 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType566 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType566 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7068,8 +13824,32 @@ export class SimpleType567 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType567 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType568 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType568 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7092,8 +13872,32 @@ export class SimpleType569 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType569 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType570 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType570 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7116,8 +13920,32 @@ export class SimpleType571 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType571 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType572 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType572 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7140,8 +13968,32 @@ export class SimpleType573 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType573 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType574 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType574 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7164,8 +14016,32 @@ export class SimpleType575 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType575 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType576 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType576 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7188,8 +14064,32 @@ export class SimpleType577 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType577 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType578 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType578 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7212,8 +14112,32 @@ export class SimpleType579 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType579 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType580 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType580 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7236,8 +14160,32 @@ export class SimpleType581 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType581 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType582 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType582 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7260,8 +14208,32 @@ export class SimpleType583 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType583 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType584 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType584 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7284,8 +14256,32 @@ export class SimpleType585 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType585 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType586 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType586 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7308,8 +14304,32 @@ export class SimpleType587 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType587 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType588 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType588 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7332,8 +14352,32 @@ export class SimpleType589 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType589 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType590 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType590 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7356,8 +14400,32 @@ export class SimpleType591 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType591 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType592 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType592 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7380,8 +14448,32 @@ export class SimpleType593 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType593 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType594 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType594 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7404,8 +14496,32 @@ export class SimpleType595 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType595 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType596 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType596 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7428,8 +14544,32 @@ export class SimpleType597 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType597 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType598 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType598 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7452,8 +14592,32 @@ export class SimpleType599 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType599 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType600 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType600 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7476,52 +14640,70 @@ export class SimpleType601 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType601 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 601');
 
-console.time('pick 31');
-@ObjectType() export class PickTest31 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 31');
+console.time('pick 13');
+@ObjectType() export class PickTest13 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 13');
 
-console.time('omit 31');
-@ObjectType() export class OmitTest31 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 31');
+console.time('omit 13');
+@ObjectType() export class OmitTest13 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 13');
 
-console.time('pick 32');
-@ObjectType() export class PickTest32 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 32');
+console.time('pick args 13');
+@ObjectType() export class PickArgsTest13 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 13');
 
-console.time('omit 32');
-@ObjectType() export class OmitTest32 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 32');
+console.time('omit args 13');
+@ArgsType() export class OmitArgsTest13 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 13');
 
-console.time('pick 33');
-@ObjectType() export class PickTest33 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 33');
 
-console.time('omit 33');
-@ObjectType() export class OmitTest33 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 33');
+console.time('pick 14');
+@ObjectType() export class PickTest14 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 14');
 
-console.time('pick 34');
-@ObjectType() export class PickTest34 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 34');
+console.time('omit 14');
+@ObjectType() export class OmitTest14 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 14');
 
-console.time('omit 34');
-@ObjectType() export class OmitTest34 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 34');
+console.time('pick args 14');
+@ObjectType() export class PickArgsTest14 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 14');
 
-console.time('pick 35');
-@ObjectType() export class PickTest35 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 35');
+console.time('omit args 14');
+@ArgsType() export class OmitArgsTest14 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 14');
 
-console.time('omit 35');
-@ObjectType() export class OmitTest35 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 35');
 
-console.log('created 5 pick/omit types, total 70');
+console.log('created 2 pick/omit types, total 28');
 
 @ObjectType()
 export class SimpleType602 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType602 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7544,8 +14726,32 @@ export class SimpleType603 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType603 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType604 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType604 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7568,8 +14774,32 @@ export class SimpleType605 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType605 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType606 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType606 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7592,8 +14822,32 @@ export class SimpleType607 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType607 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType608 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType608 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7616,8 +14870,32 @@ export class SimpleType609 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType609 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType610 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType610 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7640,8 +14918,32 @@ export class SimpleType611 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType611 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType612 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType612 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7664,8 +14966,32 @@ export class SimpleType613 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType613 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType614 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType614 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7688,8 +15014,32 @@ export class SimpleType615 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType615 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType616 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType616 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7712,8 +15062,32 @@ export class SimpleType617 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType617 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType618 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType618 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7736,8 +15110,32 @@ export class SimpleType619 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType619 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType620 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType620 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7760,8 +15158,32 @@ export class SimpleType621 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType621 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType622 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType622 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7784,8 +15206,32 @@ export class SimpleType623 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType623 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType624 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType624 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7808,8 +15254,32 @@ export class SimpleType625 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType625 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType626 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType626 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7832,8 +15302,32 @@ export class SimpleType627 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType627 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType628 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType628 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7856,8 +15350,32 @@ export class SimpleType629 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType629 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType630 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType630 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7880,8 +15398,32 @@ export class SimpleType631 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType631 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType632 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType632 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7904,8 +15446,32 @@ export class SimpleType633 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType633 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType634 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType634 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7928,8 +15494,32 @@ export class SimpleType635 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType635 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType636 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType636 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7952,8 +15542,32 @@ export class SimpleType637 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType637 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType638 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType638 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -7976,8 +15590,32 @@ export class SimpleType639 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType639 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType640 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType640 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8000,8 +15638,32 @@ export class SimpleType641 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType641 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType642 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType642 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8024,8 +15686,32 @@ export class SimpleType643 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType643 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType644 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType644 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8048,8 +15734,32 @@ export class SimpleType645 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType645 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType646 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType646 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8072,8 +15782,32 @@ export class SimpleType647 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType647 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType648 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType648 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8096,8 +15830,32 @@ export class SimpleType649 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType649 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType650 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType650 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8120,8 +15878,32 @@ export class SimpleType651 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType651 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType652 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType652 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8144,8 +15926,32 @@ export class SimpleType653 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType653 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType654 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType654 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8168,8 +15974,32 @@ export class SimpleType655 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType655 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType656 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType656 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8192,8 +16022,32 @@ export class SimpleType657 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType657 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType658 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType658 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8216,8 +16070,32 @@ export class SimpleType659 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType659 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType660 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType660 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8240,8 +16118,32 @@ export class SimpleType661 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType661 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType662 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType662 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8264,8 +16166,32 @@ export class SimpleType663 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType663 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType664 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType664 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8288,8 +16214,32 @@ export class SimpleType665 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType665 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType666 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType666 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8312,8 +16262,32 @@ export class SimpleType667 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType667 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType668 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType668 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8336,8 +16310,32 @@ export class SimpleType669 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType669 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType670 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType670 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8360,8 +16358,32 @@ export class SimpleType671 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType671 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType672 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType672 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8384,8 +16406,32 @@ export class SimpleType673 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType673 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType674 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType674 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8408,8 +16454,32 @@ export class SimpleType675 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType675 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType676 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType676 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8432,8 +16502,32 @@ export class SimpleType677 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType677 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType678 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType678 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8456,8 +16550,32 @@ export class SimpleType679 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType679 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType680 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType680 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8480,8 +16598,32 @@ export class SimpleType681 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType681 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType682 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType682 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8504,8 +16646,32 @@ export class SimpleType683 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType683 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType684 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType684 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8528,8 +16694,32 @@ export class SimpleType685 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType685 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType686 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType686 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8552,8 +16742,32 @@ export class SimpleType687 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType687 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType688 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType688 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8576,8 +16790,32 @@ export class SimpleType689 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType689 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType690 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType690 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8600,8 +16838,32 @@ export class SimpleType691 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType691 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType692 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType692 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8624,8 +16886,32 @@ export class SimpleType693 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType693 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType694 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType694 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8648,8 +16934,32 @@ export class SimpleType695 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType695 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType696 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType696 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8672,8 +16982,32 @@ export class SimpleType697 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType697 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType698 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType698 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8696,8 +17030,32 @@ export class SimpleType699 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType699 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType700 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType700 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8720,52 +17078,70 @@ export class SimpleType701 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType701 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 701');
 
-console.time('pick 36');
-@ObjectType() export class PickTest36 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 36');
+console.time('pick 15');
+@ObjectType() export class PickTest15 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 15');
 
-console.time('omit 36');
-@ObjectType() export class OmitTest36 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 36');
+console.time('omit 15');
+@ObjectType() export class OmitTest15 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 15');
 
-console.time('pick 37');
-@ObjectType() export class PickTest37 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 37');
+console.time('pick args 15');
+@ObjectType() export class PickArgsTest15 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 15');
 
-console.time('omit 37');
-@ObjectType() export class OmitTest37 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 37');
+console.time('omit args 15');
+@ArgsType() export class OmitArgsTest15 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 15');
 
-console.time('pick 38');
-@ObjectType() export class PickTest38 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 38');
 
-console.time('omit 38');
-@ObjectType() export class OmitTest38 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 38');
+console.time('pick 16');
+@ObjectType() export class PickTest16 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 16');
 
-console.time('pick 39');
-@ObjectType() export class PickTest39 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 39');
+console.time('omit 16');
+@ObjectType() export class OmitTest16 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 16');
 
-console.time('omit 39');
-@ObjectType() export class OmitTest39 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 39');
+console.time('pick args 16');
+@ObjectType() export class PickArgsTest16 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 16');
 
-console.time('pick 40');
-@ObjectType() export class PickTest40 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 40');
+console.time('omit args 16');
+@ArgsType() export class OmitArgsTest16 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 16');
 
-console.time('omit 40');
-@ObjectType() export class OmitTest40 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 40');
 
-console.log('created 5 pick/omit types, total 80');
+console.log('created 2 pick/omit types, total 32');
 
 @ObjectType()
 export class SimpleType702 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType702 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8788,8 +17164,32 @@ export class SimpleType703 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType703 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType704 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType704 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8812,8 +17212,32 @@ export class SimpleType705 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType705 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType706 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType706 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8836,8 +17260,32 @@ export class SimpleType707 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType707 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType708 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType708 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8860,8 +17308,32 @@ export class SimpleType709 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType709 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType710 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType710 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8884,8 +17356,32 @@ export class SimpleType711 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType711 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType712 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType712 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8908,8 +17404,32 @@ export class SimpleType713 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType713 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType714 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType714 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8932,8 +17452,32 @@ export class SimpleType715 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType715 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType716 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType716 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8956,8 +17500,32 @@ export class SimpleType717 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType717 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType718 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType718 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -8980,8 +17548,32 @@ export class SimpleType719 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType719 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType720 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType720 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9004,8 +17596,32 @@ export class SimpleType721 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType721 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType722 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType722 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9028,8 +17644,32 @@ export class SimpleType723 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType723 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType724 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType724 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9052,8 +17692,32 @@ export class SimpleType725 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType725 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType726 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType726 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9076,8 +17740,32 @@ export class SimpleType727 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType727 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType728 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType728 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9100,8 +17788,32 @@ export class SimpleType729 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType729 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType730 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType730 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9124,8 +17836,32 @@ export class SimpleType731 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType731 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType732 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType732 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9148,8 +17884,32 @@ export class SimpleType733 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType733 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType734 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType734 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9172,8 +17932,32 @@ export class SimpleType735 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType735 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType736 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType736 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9196,8 +17980,32 @@ export class SimpleType737 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType737 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType738 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType738 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9220,8 +18028,32 @@ export class SimpleType739 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType739 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType740 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType740 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9244,8 +18076,32 @@ export class SimpleType741 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType741 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType742 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType742 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9268,8 +18124,32 @@ export class SimpleType743 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType743 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType744 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType744 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9292,8 +18172,32 @@ export class SimpleType745 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType745 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType746 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType746 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9316,8 +18220,32 @@ export class SimpleType747 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType747 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType748 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType748 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9340,8 +18268,32 @@ export class SimpleType749 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType749 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType750 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType750 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9364,8 +18316,32 @@ export class SimpleType751 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType751 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType752 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType752 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9388,8 +18364,32 @@ export class SimpleType753 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType753 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType754 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType754 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9412,8 +18412,32 @@ export class SimpleType755 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType755 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType756 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType756 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9436,8 +18460,32 @@ export class SimpleType757 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType757 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType758 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType758 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9460,8 +18508,32 @@ export class SimpleType759 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType759 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType760 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType760 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9484,8 +18556,32 @@ export class SimpleType761 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType761 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType762 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType762 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9508,8 +18604,32 @@ export class SimpleType763 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType763 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType764 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType764 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9532,8 +18652,32 @@ export class SimpleType765 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType765 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType766 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType766 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9556,8 +18700,32 @@ export class SimpleType767 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType767 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType768 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType768 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9580,8 +18748,32 @@ export class SimpleType769 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType769 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType770 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType770 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9604,8 +18796,32 @@ export class SimpleType771 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType771 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType772 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType772 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9628,8 +18844,32 @@ export class SimpleType773 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType773 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType774 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType774 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9652,8 +18892,32 @@ export class SimpleType775 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType775 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType776 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType776 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9676,8 +18940,32 @@ export class SimpleType777 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType777 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType778 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType778 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9700,8 +18988,32 @@ export class SimpleType779 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType779 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType780 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType780 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9724,8 +19036,32 @@ export class SimpleType781 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType781 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType782 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType782 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9748,8 +19084,32 @@ export class SimpleType783 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType783 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType784 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType784 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9772,8 +19132,32 @@ export class SimpleType785 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType785 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType786 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType786 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9796,8 +19180,32 @@ export class SimpleType787 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType787 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType788 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType788 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9820,8 +19228,32 @@ export class SimpleType789 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType789 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType790 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType790 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9844,8 +19276,32 @@ export class SimpleType791 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType791 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType792 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType792 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9868,8 +19324,32 @@ export class SimpleType793 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType793 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType794 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType794 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9892,8 +19372,32 @@ export class SimpleType795 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType795 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType796 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType796 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9916,8 +19420,32 @@ export class SimpleType797 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType797 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType798 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType798 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9940,8 +19468,32 @@ export class SimpleType799 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType799 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType800 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType800 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -9964,52 +19516,70 @@ export class SimpleType801 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType801 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 801');
 
-console.time('pick 41');
-@ObjectType() export class PickTest41 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 41');
+console.time('pick 17');
+@ObjectType() export class PickTest17 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 17');
 
-console.time('omit 41');
-@ObjectType() export class OmitTest41 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 41');
+console.time('omit 17');
+@ObjectType() export class OmitTest17 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 17');
 
-console.time('pick 42');
-@ObjectType() export class PickTest42 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 42');
+console.time('pick args 17');
+@ObjectType() export class PickArgsTest17 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 17');
 
-console.time('omit 42');
-@ObjectType() export class OmitTest42 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 42');
+console.time('omit args 17');
+@ArgsType() export class OmitArgsTest17 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 17');
 
-console.time('pick 43');
-@ObjectType() export class PickTest43 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 43');
 
-console.time('omit 43');
-@ObjectType() export class OmitTest43 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 43');
+console.time('pick 18');
+@ObjectType() export class PickTest18 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 18');
 
-console.time('pick 44');
-@ObjectType() export class PickTest44 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 44');
+console.time('omit 18');
+@ObjectType() export class OmitTest18 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 18');
 
-console.time('omit 44');
-@ObjectType() export class OmitTest44 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 44');
+console.time('pick args 18');
+@ObjectType() export class PickArgsTest18 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 18');
 
-console.time('pick 45');
-@ObjectType() export class PickTest45 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 45');
+console.time('omit args 18');
+@ArgsType() export class OmitArgsTest18 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 18');
 
-console.time('omit 45');
-@ObjectType() export class OmitTest45 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 45');
 
-console.log('created 5 pick/omit types, total 90');
+console.log('created 2 pick/omit types, total 36');
 
 @ObjectType()
 export class SimpleType802 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType802 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10032,8 +19602,32 @@ export class SimpleType803 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType803 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType804 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType804 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10056,8 +19650,32 @@ export class SimpleType805 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType805 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType806 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType806 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10080,8 +19698,32 @@ export class SimpleType807 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType807 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType808 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType808 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10104,8 +19746,32 @@ export class SimpleType809 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType809 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType810 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType810 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10128,8 +19794,32 @@ export class SimpleType811 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType811 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType812 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType812 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10152,8 +19842,32 @@ export class SimpleType813 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType813 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType814 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType814 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10176,8 +19890,32 @@ export class SimpleType815 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType815 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType816 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType816 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10200,8 +19938,32 @@ export class SimpleType817 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType817 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType818 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType818 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10224,8 +19986,32 @@ export class SimpleType819 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType819 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType820 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType820 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10248,8 +20034,32 @@ export class SimpleType821 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType821 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType822 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType822 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10272,8 +20082,32 @@ export class SimpleType823 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType823 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType824 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType824 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10296,8 +20130,32 @@ export class SimpleType825 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType825 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType826 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType826 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10320,8 +20178,32 @@ export class SimpleType827 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType827 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType828 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType828 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10344,8 +20226,32 @@ export class SimpleType829 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType829 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType830 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType830 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10368,8 +20274,32 @@ export class SimpleType831 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType831 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType832 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType832 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10392,8 +20322,32 @@ export class SimpleType833 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType833 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType834 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType834 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10416,8 +20370,32 @@ export class SimpleType835 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType835 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType836 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType836 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10440,8 +20418,32 @@ export class SimpleType837 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType837 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType838 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType838 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10464,8 +20466,32 @@ export class SimpleType839 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType839 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType840 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType840 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10488,8 +20514,32 @@ export class SimpleType841 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType841 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType842 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType842 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10512,8 +20562,32 @@ export class SimpleType843 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType843 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType844 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType844 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10536,8 +20610,32 @@ export class SimpleType845 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType845 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType846 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType846 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10560,8 +20658,32 @@ export class SimpleType847 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType847 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType848 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType848 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10584,8 +20706,32 @@ export class SimpleType849 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType849 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType850 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType850 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10608,8 +20754,32 @@ export class SimpleType851 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType851 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType852 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType852 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10632,8 +20802,32 @@ export class SimpleType853 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType853 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType854 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType854 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10656,8 +20850,32 @@ export class SimpleType855 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType855 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType856 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType856 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10680,8 +20898,32 @@ export class SimpleType857 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType857 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType858 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType858 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10704,8 +20946,32 @@ export class SimpleType859 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType859 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType860 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType860 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10728,8 +20994,32 @@ export class SimpleType861 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType861 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType862 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType862 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10752,8 +21042,32 @@ export class SimpleType863 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType863 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType864 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType864 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10776,8 +21090,32 @@ export class SimpleType865 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType865 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType866 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType866 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10800,8 +21138,32 @@ export class SimpleType867 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType867 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType868 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType868 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10824,8 +21186,32 @@ export class SimpleType869 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType869 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType870 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType870 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10848,8 +21234,32 @@ export class SimpleType871 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType871 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType872 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType872 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10872,8 +21282,32 @@ export class SimpleType873 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType873 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType874 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType874 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10896,8 +21330,32 @@ export class SimpleType875 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType875 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType876 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType876 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10920,8 +21378,32 @@ export class SimpleType877 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType877 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType878 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType878 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10944,8 +21426,32 @@ export class SimpleType879 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType879 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType880 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType880 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10968,8 +21474,32 @@ export class SimpleType881 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType881 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType882 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType882 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -10992,8 +21522,32 @@ export class SimpleType883 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType883 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType884 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType884 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11016,8 +21570,32 @@ export class SimpleType885 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType885 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType886 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType886 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11040,8 +21618,32 @@ export class SimpleType887 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType887 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType888 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType888 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11064,8 +21666,32 @@ export class SimpleType889 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType889 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType890 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType890 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11088,8 +21714,32 @@ export class SimpleType891 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType891 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType892 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType892 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11112,8 +21762,32 @@ export class SimpleType893 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType893 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType894 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType894 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11136,8 +21810,32 @@ export class SimpleType895 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType895 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType896 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType896 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11160,8 +21858,32 @@ export class SimpleType897 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType897 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType898 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType898 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11184,8 +21906,32 @@ export class SimpleType899 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType899 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType900 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType900 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11208,52 +21954,70 @@ export class SimpleType901 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType901 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 901');
 
-console.time('pick 46');
-@ObjectType() export class PickTest46 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 46');
+console.time('pick 19');
+@ObjectType() export class PickTest19 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 19');
 
-console.time('omit 46');
-@ObjectType() export class OmitTest46 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 46');
+console.time('omit 19');
+@ObjectType() export class OmitTest19 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 19');
 
-console.time('pick 47');
-@ObjectType() export class PickTest47 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 47');
+console.time('pick args 19');
+@ObjectType() export class PickArgsTest19 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 19');
 
-console.time('omit 47');
-@ObjectType() export class OmitTest47 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 47');
+console.time('omit args 19');
+@ArgsType() export class OmitArgsTest19 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 19');
 
-console.time('pick 48');
-@ObjectType() export class PickTest48 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 48');
 
-console.time('omit 48');
-@ObjectType() export class OmitTest48 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 48');
+console.time('pick 20');
+@ObjectType() export class PickTest20 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 20');
 
-console.time('pick 49');
-@ObjectType() export class PickTest49 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 49');
+console.time('omit 20');
+@ObjectType() export class OmitTest20 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 20');
 
-console.time('omit 49');
-@ObjectType() export class OmitTest49 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 49');
+console.time('pick args 20');
+@ObjectType() export class PickArgsTest20 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 20');
 
-console.time('pick 50');
-@ObjectType() export class PickTest50 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 50');
+console.time('omit args 20');
+@ArgsType() export class OmitArgsTest20 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 20');
 
-console.time('omit 50');
-@ObjectType() export class OmitTest50 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 50');
 
-console.log('created 5 pick/omit types, total 100');
+console.log('created 2 pick/omit types, total 40');
 
 @ObjectType()
 export class SimpleType902 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType902 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11276,8 +22040,32 @@ export class SimpleType903 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType903 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType904 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType904 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11300,8 +22088,32 @@ export class SimpleType905 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType905 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType906 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType906 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11324,8 +22136,32 @@ export class SimpleType907 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType907 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType908 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType908 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11348,8 +22184,32 @@ export class SimpleType909 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType909 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType910 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType910 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11372,8 +22232,32 @@ export class SimpleType911 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType911 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType912 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType912 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11396,8 +22280,32 @@ export class SimpleType913 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType913 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType914 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType914 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11420,8 +22328,32 @@ export class SimpleType915 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType915 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType916 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType916 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11444,8 +22376,32 @@ export class SimpleType917 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType917 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType918 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType918 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11468,8 +22424,32 @@ export class SimpleType919 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType919 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType920 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType920 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11492,8 +22472,32 @@ export class SimpleType921 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType921 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType922 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType922 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11516,8 +22520,32 @@ export class SimpleType923 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType923 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType924 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType924 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11540,8 +22568,32 @@ export class SimpleType925 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType925 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType926 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType926 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11564,8 +22616,32 @@ export class SimpleType927 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType927 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType928 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType928 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11588,8 +22664,32 @@ export class SimpleType929 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType929 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType930 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType930 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11612,8 +22712,32 @@ export class SimpleType931 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType931 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType932 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType932 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11636,8 +22760,32 @@ export class SimpleType933 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType933 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType934 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType934 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11660,8 +22808,32 @@ export class SimpleType935 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType935 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType936 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType936 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11684,8 +22856,32 @@ export class SimpleType937 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType937 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType938 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType938 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11708,8 +22904,32 @@ export class SimpleType939 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType939 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType940 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType940 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11732,8 +22952,32 @@ export class SimpleType941 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType941 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType942 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType942 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11756,8 +23000,32 @@ export class SimpleType943 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType943 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType944 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType944 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11780,8 +23048,32 @@ export class SimpleType945 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType945 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType946 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType946 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11804,8 +23096,32 @@ export class SimpleType947 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType947 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType948 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType948 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11828,8 +23144,32 @@ export class SimpleType949 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType949 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType950 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType950 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11852,8 +23192,32 @@ export class SimpleType951 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType951 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType952 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType952 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11876,8 +23240,32 @@ export class SimpleType953 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType953 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType954 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType954 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11900,8 +23288,32 @@ export class SimpleType955 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType955 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType956 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType956 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11924,8 +23336,32 @@ export class SimpleType957 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType957 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType958 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType958 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11948,8 +23384,32 @@ export class SimpleType959 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType959 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType960 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType960 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11972,8 +23432,32 @@ export class SimpleType961 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType961 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType962 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType962 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -11996,8 +23480,32 @@ export class SimpleType963 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType963 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType964 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType964 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12020,8 +23528,32 @@ export class SimpleType965 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType965 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType966 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType966 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12044,8 +23576,32 @@ export class SimpleType967 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType967 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType968 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType968 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12068,8 +23624,32 @@ export class SimpleType969 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType969 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType970 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType970 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12092,8 +23672,32 @@ export class SimpleType971 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType971 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType972 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType972 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12116,8 +23720,32 @@ export class SimpleType973 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType973 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType974 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType974 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12140,8 +23768,32 @@ export class SimpleType975 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType975 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType976 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType976 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12164,8 +23816,32 @@ export class SimpleType977 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType977 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType978 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType978 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12188,8 +23864,32 @@ export class SimpleType979 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType979 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType980 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType980 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12212,8 +23912,32 @@ export class SimpleType981 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType981 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType982 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType982 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12236,8 +23960,32 @@ export class SimpleType983 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType983 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType984 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType984 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12260,8 +24008,32 @@ export class SimpleType985 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType985 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType986 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType986 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12284,8 +24056,32 @@ export class SimpleType987 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType987 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType988 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType988 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12308,8 +24104,32 @@ export class SimpleType989 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType989 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType990 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType990 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12332,8 +24152,32 @@ export class SimpleType991 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType991 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType992 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType992 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12356,8 +24200,32 @@ export class SimpleType993 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType993 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType994 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType994 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12380,8 +24248,32 @@ export class SimpleType995 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType995 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType996 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType996 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12404,8 +24296,32 @@ export class SimpleType997 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType997 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType998 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType998 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12428,8 +24344,32 @@ export class SimpleType999 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType999 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 @ObjectType()
 export class SimpleType1000 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
+@ArgsType()
+export class ArgsType1000 {
   @Field() a: string;
   @Field() b: string;
   @Field() c: string;
@@ -12452,6267 +24392,53 @@ export class SimpleType1001 {
   @Field() h: string;
 }
 
+@ArgsType()
+export class ArgsType1001 {
+  @Field() a: string;
+  @Field() b: string;
+  @Field() c: string;
+  @Field() d: string;
+  @Field() e: string;
+  @Field() f: string;
+  @Field() g: string;
+  @Field() h: string;
+}
+
 console.log('created 100 simple types, total 1001');
 
-console.time('pick 51');
-@ObjectType() export class PickTest51 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 51');
+console.time('pick 21');
+@ObjectType() export class PickTest21 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 21');
 
-console.time('omit 51');
-@ObjectType() export class OmitTest51 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 51');
+console.time('omit 21');
+@ObjectType() export class OmitTest21 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 21');
 
-console.time('pick 52');
-@ObjectType() export class PickTest52 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 52');
+console.time('pick args 21');
+@ObjectType() export class PickArgsTest21 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 21');
 
-console.time('omit 52');
-@ObjectType() export class OmitTest52 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 52');
+console.time('omit args 21');
+@ArgsType() export class OmitArgsTest21 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 21');
 
-console.time('pick 53');
-@ObjectType() export class PickTest53 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 53');
 
-console.time('omit 53');
-@ObjectType() export class OmitTest53 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 53');
+console.time('pick 22');
+@ObjectType() export class PickTest22 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
+console.timeEnd('pick 22');
 
-console.time('pick 54');
-@ObjectType() export class PickTest54 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 54');
+console.time('omit 22');
+@ObjectType() export class OmitTest22 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
+console.timeEnd('omit 22');
 
-console.time('omit 54');
-@ObjectType() export class OmitTest54 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 54');
+console.time('pick args 22');
+@ObjectType() export class PickArgsTest22 extends PickType(ArgsType1, ['a', 'c', 'f', 'h'], ArgsType) {}
+console.timeEnd('pick args 22');
 
-console.time('pick 55');
-@ObjectType() export class PickTest55 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 55');
+console.time('omit args 22');
+@ArgsType() export class OmitArgsTest22 extends OmitType(ArgsType1, ['b', 'c', 'h'], ArgsType) {}
+console.timeEnd('omit args 22');
 
-console.time('omit 55');
-@ObjectType() export class OmitTest55 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 55');
 
-console.log('created 5 pick/omit types, total 110');
-
-@ObjectType()
-export class SimpleType1002 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1003 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1004 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1005 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1006 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1007 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1008 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1009 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1010 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1011 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1012 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1013 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1014 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1015 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1016 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1017 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1018 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1019 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1020 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1021 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1022 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1023 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1024 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1025 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1026 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1027 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1028 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1029 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1030 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1031 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1032 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1033 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1034 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1035 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1036 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1037 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1038 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1039 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1040 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1041 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1042 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1043 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1044 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1045 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1046 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1047 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1048 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1049 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1050 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1051 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1052 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1053 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1054 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1055 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1056 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1057 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1058 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1059 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1060 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1061 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1062 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1063 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1064 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1065 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1066 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1067 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1068 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1069 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1070 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1071 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1072 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1073 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1074 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1075 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1076 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1077 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1078 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1079 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1080 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1081 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1082 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1083 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1084 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1085 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1086 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1087 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1088 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1089 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1090 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1091 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1092 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1093 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1094 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1095 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1096 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1097 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1098 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1099 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1100 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1101 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-console.log('created 100 simple types, total 1101');
-
-console.time('pick 56');
-@ObjectType() export class PickTest56 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 56');
-
-console.time('omit 56');
-@ObjectType() export class OmitTest56 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 56');
-
-console.time('pick 57');
-@ObjectType() export class PickTest57 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 57');
-
-console.time('omit 57');
-@ObjectType() export class OmitTest57 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 57');
-
-console.time('pick 58');
-@ObjectType() export class PickTest58 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 58');
-
-console.time('omit 58');
-@ObjectType() export class OmitTest58 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 58');
-
-console.time('pick 59');
-@ObjectType() export class PickTest59 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 59');
-
-console.time('omit 59');
-@ObjectType() export class OmitTest59 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 59');
-
-console.time('pick 60');
-@ObjectType() export class PickTest60 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 60');
-
-console.time('omit 60');
-@ObjectType() export class OmitTest60 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 60');
-
-console.log('created 5 pick/omit types, total 120');
-
-@ObjectType()
-export class SimpleType1102 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1103 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1104 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1105 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1106 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1107 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1108 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1109 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1110 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1111 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1112 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1113 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1114 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1115 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1116 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1117 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1118 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1119 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1120 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1121 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1122 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1123 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1124 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1125 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1126 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1127 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1128 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1129 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1130 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1131 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1132 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1133 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1134 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1135 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1136 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1137 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1138 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1139 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1140 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1141 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1142 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1143 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1144 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1145 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1146 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1147 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1148 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1149 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1150 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1151 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1152 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1153 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1154 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1155 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1156 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1157 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1158 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1159 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1160 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1161 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1162 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1163 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1164 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1165 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1166 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1167 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1168 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1169 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1170 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1171 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1172 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1173 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1174 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1175 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1176 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1177 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1178 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1179 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1180 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1181 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1182 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1183 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1184 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1185 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1186 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1187 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1188 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1189 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1190 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1191 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1192 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1193 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1194 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1195 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1196 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1197 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1198 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1199 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1200 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1201 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-console.log('created 100 simple types, total 1201');
-
-console.time('pick 61');
-@ObjectType() export class PickTest61 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 61');
-
-console.time('omit 61');
-@ObjectType() export class OmitTest61 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 61');
-
-console.time('pick 62');
-@ObjectType() export class PickTest62 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 62');
-
-console.time('omit 62');
-@ObjectType() export class OmitTest62 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 62');
-
-console.time('pick 63');
-@ObjectType() export class PickTest63 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 63');
-
-console.time('omit 63');
-@ObjectType() export class OmitTest63 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 63');
-
-console.time('pick 64');
-@ObjectType() export class PickTest64 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 64');
-
-console.time('omit 64');
-@ObjectType() export class OmitTest64 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 64');
-
-console.time('pick 65');
-@ObjectType() export class PickTest65 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 65');
-
-console.time('omit 65');
-@ObjectType() export class OmitTest65 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 65');
-
-console.log('created 5 pick/omit types, total 130');
-
-@ObjectType()
-export class SimpleType1202 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1203 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1204 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1205 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1206 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1207 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1208 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1209 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1210 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1211 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1212 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1213 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1214 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1215 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1216 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1217 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1218 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1219 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1220 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1221 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1222 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1223 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1224 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1225 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1226 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1227 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1228 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1229 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1230 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1231 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1232 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1233 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1234 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1235 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1236 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1237 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1238 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1239 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1240 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1241 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1242 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1243 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1244 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1245 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1246 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1247 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1248 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1249 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1250 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1251 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1252 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1253 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1254 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1255 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1256 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1257 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1258 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1259 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1260 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1261 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1262 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1263 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1264 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1265 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1266 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1267 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1268 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1269 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1270 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1271 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1272 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1273 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1274 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1275 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1276 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1277 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1278 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1279 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1280 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1281 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1282 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1283 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1284 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1285 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1286 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1287 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1288 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1289 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1290 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1291 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1292 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1293 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1294 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1295 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1296 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1297 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1298 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1299 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1300 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1301 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-console.log('created 100 simple types, total 1301');
-
-console.time('pick 66');
-@ObjectType() export class PickTest66 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 66');
-
-console.time('omit 66');
-@ObjectType() export class OmitTest66 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 66');
-
-console.time('pick 67');
-@ObjectType() export class PickTest67 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 67');
-
-console.time('omit 67');
-@ObjectType() export class OmitTest67 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 67');
-
-console.time('pick 68');
-@ObjectType() export class PickTest68 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 68');
-
-console.time('omit 68');
-@ObjectType() export class OmitTest68 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 68');
-
-console.time('pick 69');
-@ObjectType() export class PickTest69 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 69');
-
-console.time('omit 69');
-@ObjectType() export class OmitTest69 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 69');
-
-console.time('pick 70');
-@ObjectType() export class PickTest70 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 70');
-
-console.time('omit 70');
-@ObjectType() export class OmitTest70 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 70');
-
-console.log('created 5 pick/omit types, total 140');
-
-@ObjectType()
-export class SimpleType1302 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1303 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1304 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1305 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1306 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1307 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1308 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1309 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1310 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1311 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1312 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1313 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1314 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1315 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1316 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1317 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1318 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1319 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1320 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1321 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1322 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1323 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1324 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1325 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1326 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1327 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1328 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1329 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1330 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1331 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1332 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1333 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1334 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1335 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1336 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1337 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1338 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1339 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1340 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1341 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1342 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1343 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1344 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1345 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1346 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1347 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1348 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1349 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1350 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1351 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1352 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1353 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1354 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1355 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1356 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1357 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1358 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1359 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1360 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1361 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1362 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1363 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1364 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1365 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1366 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1367 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1368 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1369 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1370 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1371 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1372 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1373 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1374 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1375 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1376 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1377 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1378 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1379 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1380 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1381 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1382 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1383 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1384 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1385 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1386 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1387 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1388 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1389 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1390 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1391 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1392 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1393 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1394 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1395 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1396 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1397 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1398 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1399 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1400 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1401 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-console.log('created 100 simple types, total 1401');
-
-console.time('pick 71');
-@ObjectType() export class PickTest71 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 71');
-
-console.time('omit 71');
-@ObjectType() export class OmitTest71 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 71');
-
-console.time('pick 72');
-@ObjectType() export class PickTest72 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 72');
-
-console.time('omit 72');
-@ObjectType() export class OmitTest72 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 72');
-
-console.time('pick 73');
-@ObjectType() export class PickTest73 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 73');
-
-console.time('omit 73');
-@ObjectType() export class OmitTest73 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 73');
-
-console.time('pick 74');
-@ObjectType() export class PickTest74 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 74');
-
-console.time('omit 74');
-@ObjectType() export class OmitTest74 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 74');
-
-console.time('pick 75');
-@ObjectType() export class PickTest75 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 75');
-
-console.time('omit 75');
-@ObjectType() export class OmitTest75 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 75');
-
-console.log('created 5 pick/omit types, total 150');
-
-@ObjectType()
-export class SimpleType1402 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1403 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1404 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1405 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1406 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1407 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1408 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1409 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1410 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1411 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1412 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1413 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1414 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1415 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1416 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1417 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1418 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1419 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1420 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1421 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1422 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1423 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1424 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1425 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1426 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1427 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1428 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1429 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1430 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1431 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1432 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1433 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1434 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1435 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1436 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1437 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1438 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1439 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1440 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1441 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1442 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1443 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1444 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1445 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1446 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1447 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1448 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1449 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1450 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1451 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1452 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1453 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1454 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1455 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1456 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1457 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1458 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1459 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1460 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1461 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1462 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1463 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1464 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1465 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1466 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1467 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1468 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1469 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1470 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1471 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1472 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1473 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1474 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1475 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1476 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1477 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1478 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1479 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1480 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1481 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1482 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1483 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1484 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1485 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1486 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1487 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1488 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1489 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1490 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1491 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1492 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1493 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1494 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1495 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1496 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1497 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1498 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1499 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1500 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-@ObjectType()
-export class SimpleType1501 {
-  @Field() a: string;
-  @Field() b: string;
-  @Field() c: string;
-  @Field() d: string;
-  @Field() e: string;
-  @Field() f: string;
-  @Field() g: string;
-  @Field() h: string;
-}
-
-console.log('created 100 simple types, total 1501');
-
-console.time('pick 76');
-@ObjectType() export class PickTest76 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 76');
-
-console.time('omit 76');
-@ObjectType() export class OmitTest76 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 76');
-
-console.time('pick 77');
-@ObjectType() export class PickTest77 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 77');
-
-console.time('omit 77');
-@ObjectType() export class OmitTest77 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 77');
-
-console.time('pick 78');
-@ObjectType() export class PickTest78 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 78');
-
-console.time('omit 78');
-@ObjectType() export class OmitTest78 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 78');
-
-console.time('pick 79');
-@ObjectType() export class PickTest79 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 79');
-
-console.time('omit 79');
-@ObjectType() export class OmitTest79 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 79');
-
-console.time('pick 80');
-@ObjectType() export class PickTest80 extends PickType(SimpleType1, ['a', 'c', 'f', 'h']) {}
-console.timeEnd('pick 80');
-
-console.time('omit 80');
-@ObjectType() export class OmitTest80 extends OmitType(SimpleType1, ['b', 'c', 'h']) {}
-console.timeEnd('omit 80');
-
-console.log('created 5 pick/omit types, total 160');
+console.log('created 2 pick/omit types, total 44');
 
